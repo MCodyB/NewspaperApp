@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:id])
+    @user = User.new(params[:user])
     if @user.save
       params[:subscription_ids].each do |sub|
         subscription = Subscription.create(:subscription_plan_id => sub,

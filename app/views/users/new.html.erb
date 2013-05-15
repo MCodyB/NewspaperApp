@@ -4,12 +4,13 @@
 
 <%= f.label :name %>
 <%= f.text_field :name %>
-<ul>
-<% SubscriptionPlan.all.each do |plan| %>
 
-  <li>
-    <%= plan.newspaper.title %> <%= plan.cost %> <%= plan.is_daily%>
-    <%= check_box_tag('subscription_ids[]', plan.id) %>
+<ul>
+<% Newspaper.all.each do |paper| %>
+<li>
+    <%= paper.title %>
+    <%=select_tag 'subscription_ids[]', options_from_collection_for_select(
+    paper.subscription_plans, 'id', 'cost'), :include_blank => true %>
   </li>
   <% end %>
 </ul>
