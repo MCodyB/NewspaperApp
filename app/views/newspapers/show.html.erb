@@ -6,4 +6,15 @@ Title: <%= @newspaper.title %>
 Editor: <%= @newspaper.editor %>
 </p>
 
+<!-- <%#= @newspaper.subscription_plans.inspect %>
+<br>
+<br> -->
+<h2>Subscription plans</h2>
+<ul>
+<% @newspaper.subscription_plans.each do |plan| %>
+  <li>Price: $<%= plan.cost %>, Daily? <%= plan.is_daily? %></li>
+<% end %>
+</ul>
+<br>
 
+<%= link_to "New subscription plan", new_newspaper_subscription_plan_url(@newspaper.id) %>

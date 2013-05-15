@@ -1,0 +1,13 @@
+<%= form_for [@newspaper, @subscription_plan] do |f| %>
+  <p>Subscription Plan</p>
+
+
+
+  <%= f.label :price, "Enter price in cents" %>
+  <%= f.number_field :price %><br>
+
+  Daily: <%= f.radio_button(:is_daily, true, :checked=>true)%><br>
+  Weekly: <%= f.radio_button(:is_daily, false)%><br>
+
+  <%= f.submit %>
+<% end %>

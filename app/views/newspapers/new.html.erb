@@ -8,6 +8,17 @@
   <%= f.label :editor %>
   <%= f.text_field :editor %>
 
+  <%= f.fields_for(:subscription_plans) do |plan_form| %>
+    <p>Subscription Plan</p>
+
+    <%= plan_form.label :price, "Enter price in cents" %>
+    <%= plan_form.number_field :price %><br>
+
+    Daily: <%= plan_form.radio_button(:is_daily, true, :checked=>true)%><br>
+    Weekly: <%= plan_form.radio_button(:is_daily, false)%><br>
+
+  <% end %>
+
   <%= f.submit "MAKE NEWSPAPER" %>
 
 <% end %>

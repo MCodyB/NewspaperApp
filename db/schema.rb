@@ -11,13 +11,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130515130227) do
+ActiveRecord::Schema.define(:version => 20130515171926) do
 
   create_table "newspapers", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "editor"
     t.string   "title"
+  end
+
+  create_table "subscription_plans", :force => true do |t|
+    t.boolean  "is_daily"
+    t.integer  "newspaper_id"
+    t.integer  "price"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "subscriptions", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "subscription_plan_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

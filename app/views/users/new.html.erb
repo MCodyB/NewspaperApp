@@ -1,0 +1,18 @@
+<h1>New User</h1>
+
+<%= form_for @user do |f| %>
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+<ul>
+<% SubscriptionPlan.all.each do |plan| %>
+
+  <li>
+    <%= plan.newspaper.title %> <%= plan.cost %> <%= plan.is_daily%>
+    <%= check_box_tag('subscription_ids[]', plan.id) %>
+  </li>
+  <% end %>
+</ul>
+
+<%= f.submit %>
+<% end %>

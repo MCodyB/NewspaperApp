@@ -1,0 +1,8 @@
+<h1>User: <%= @user.name %></h1>
+Subscribes to:
+<ul>
+<% @user.subscription_plans.each do |plan| %>
+
+<li><%= link_to plan.newspaper.title, newspaper_url(plan.newspaper.id) %></li>
+<% end %>
+</ul>
