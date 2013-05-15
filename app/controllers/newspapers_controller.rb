@@ -6,7 +6,7 @@ class NewspapersController < ApplicationController
 
   def new
     @newspaper = Newspaper.new
-    @newspaper.subscription_plans.build
+    3.times { @newspaper.subscription_plans.build }
   end
 
   def create

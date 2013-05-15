@@ -1,8 +1,12 @@
-<h1>Newspaper Index</h1>
-<ul>
-<% @newspapers.each do |newspaper| %>
-  <li>
-  <%= link_to newspaper.title, newspaper_url(newspaper.id) %>
-  </li>
-<% end %>
-</ul>
+
+<div class="hero-unit">
+  <h1>Our newspapers</h1>
+  <p class="lead">Browse our many fine publications!</p>
+  <ul>
+  <% @newspapers.each do |newspaper| %>
+    <li>
+    <%= link_to newspaper.title, newspaper_url(newspaper.id) %>
+    </li>
+  <% end %>
+  </ul>
+</div>

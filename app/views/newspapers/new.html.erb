@@ -1,4 +1,4 @@
-<h1>New Newspaper Page</h1>
+<h1>New Newspaper</h1>
 
 <%= form_for @newspaper do |f| %>
 
@@ -8,17 +8,23 @@
   <%= f.label :editor %>
   <%= f.text_field :editor %>
 
+  <h2>Subscription Plans</h2>
   <%= f.fields_for(:subscription_plans) do |plan_form| %>
-    <p>Subscription Plan</p>
+    <form>
+      <%= plan_form.label :price, "Enter price in cents" %>
+      <input type="text"><%= plan_form.number_field :price %></input>
 
-    <%= plan_form.label :price, "Enter price in cents" %>
-    <%= plan_form.number_field :price %><br>
-
-    Daily: <%= plan_form.radio_button(:is_daily, true, :checked=>true)%><br>
-    Weekly: <%= plan_form.radio_button(:is_daily, false)%><br>
-
+      <label class="radio">
+        Daily<%= plan_form.radio_button(:is_daily, true, :checked=>true)%>
+      </label>
+      <label class="radio">
+      Weekly<%= plan_form.radio_button(:is_daily, false)%>
+      </label>
+      </form>
   <% end %>
 
-  <%= f.submit "MAKE NEWSPAPER" %>
+  <div>
+    <%= f.submit "MAKE NEWSPAPER" %>
+  </div>
 
 <% end %>
