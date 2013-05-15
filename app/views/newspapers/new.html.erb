@@ -1,0 +1,13 @@
+<h1>New Newspaper Page</h1>
+
+<%= form_for @newspaper do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :editor %>
+  <%= f.text_field :editor %>
+
+  <%= f.submit "MAKE NEWSPAPER" %>
+
+<% end %>

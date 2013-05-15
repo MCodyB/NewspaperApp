@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NewspaperApp</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= debug params %>
+
+<%= yield %>
+
+<%= link_to "Home", root_url %>
+<%= link_to "Create New Newspaper", new_newspaper_url %>
+
+
+</body>
+</html>

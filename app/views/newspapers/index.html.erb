@@ -1,0 +1,8 @@
+<h1>Newspaper Index</h1>
+<ul>
+<% @newspapers.each do |newspaper| %>
+  <li>
+  <%= link_to newspaper.title, newspaper_url(newspaper.id) %>
+  </li>
+<% end %>
+</ul>
